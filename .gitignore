@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+canspy
 
 # Precompiled Headers
 *.gch
@@ -33,3 +34,6 @@ ui_*
 qrc_*
 Makefile
 *.pro.user
+
+# Other files
+setting.txt
