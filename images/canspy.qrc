@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>connect.png</file>
+        <file>disconnect.png</file>
+        <file>icon.ico</file>
+        <file>checkbox_indicator.png</file>
+        <file>checkbox_indicator_disabled_checked.png</file>
+        <file>camera-photo.png</file>
+        <file>configure.png</file>
+        <file>clear.png</file>
+        <file>filter.png</file>
+    </qresource>
+</RCC>

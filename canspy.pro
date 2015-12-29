@@ -36,7 +36,8 @@ INCLUDEPATH = ./include
 BUILD_DIRECTORY = ./build
 
 # Define the preprocessor macro to get the application version in our application.
-DEFINES += __STDC_FORMAT_MACROS
+DEFINES += __STDC_FORMAT_MACROS \
+          VERSION=\\\"v1.00\\\"
 
 RCC_DIR = $$BUILD_DIRECTORY/RCCFiles
 UI_DIR = $$BUILD_DIRECTORY/UICFiles
@@ -58,15 +59,15 @@ SOURCES += src/main.cxx \
            src/qcanmonitor.cxx \
            src/can_drv.cxx \
            src/msgseq.cxx \
-           src/drivers/linux/net_ops.cxx \
+           src/drivers/general/net_ops.cxx \
            src/drivers/general/simulation_ops.cxx
 
 HEADERS  += include/mainwindow.h \
             include/canbus/can_drv.h \
             include/canbus/can_state.h \
             include/canbus/can_packet.h \
-            include/canbus/simulation_ops.h \
-            include/canbus/net_ops.h \
+            include/drivers/simulation_ops.h \
+            include/drivers/net_ops.h \
             include/qcanbuffer.h \
             include/qcanrecvthread.h \
             include/qcansendthread.h \
@@ -86,24 +87,15 @@ FORMS    += forms/mainwindow.ui \
             forms/configdialog.ui \
             forms/msgseq.ui
 
-linux-g++ {
+linux-* {
 SOURCES += \
-        src/osdep/linux/can_socket_ops.cxx \
+        src/drivers/linux/can_socket_ops.cxx \
         src/osdep/linux/utils_linux.cxx
 
 HEADERS += \
-        include/canbus/can_socket_ops.h
+        include/drivers/can_socket_ops.h
 
 LIBS += -lsocketcan
-SCRIPT_NAME = version.sh
-
-version.target = include/version.h
-version.commands = echo "Creating version header..."; \
-                   $$PWD/script/$$SCRIPT_NAME $$PWD
-version.depends = .
-
-QMAKE_EXTRA_TARGETS += version
-PRE_TARGETDEPS += include/version.h
 }
 
 RESOURCES += \
@@ -118,8 +110,8 @@ SOURCES += \
 
 HEADERS += \
         include/osdep/canal.h \
-        include/canbus/ixxat_ops.h \
-        include/canbus/usb2can_ops.h
+        include/drivers/ixxat_ops.h \
+        include/drivers/usb2can_ops.h
 
 LIBS += -lusb2can -lvcisdk -lWs2_32 -L./lib/win -L$(IXXAT_VCI_SDK)/lib/ia32
 
@@ -130,9 +122,6 @@ INCLUDEPATH += $(IXXAT_VCI_SDK)/inc
 DEFINES +=_CRT_SECURE_NO_WARNINGS \
           "WINVER=0x0501" \
           "_WIN32_WINNT=0x0501"
-
-QMAKE_PRE_BUILD = call $(SolutionDir)\script\version.bat
-QMAKE_PRE_LINK = call $(SolutionDir)\script\version.bat
 }
 
 
