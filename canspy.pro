@@ -1,13 +1,26 @@
-# Copyright (C) 1994-2013 Free Software Foundation, Inc.
-
-# This Makefile.in is free software; the Free Software Foundation
-# gives unlimited permission to copy and/or distribute it,
-# with or without modifications, as long as this notice is preserved.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
-# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE.
+#
+#  canspy - A simple tool for users who need to interface with a device based on
+#           CAN (CAN/CANopen/J1939/NMEA2000/DeviceNet) such as motors,
+#           sensors and many other devices.
+#  Copyright (C) 2015-2016  Manuele Conti (manuele.conti@gmail.com)
+#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# This code is made available on the understanding that it will not be
+# used in safety-critical situations without a full and competent review.
+#
 
 
 QT += core gui network printsupport
@@ -31,8 +44,8 @@ MOC_DIR = $$BUILD_DIRECTORY/MOCFiles
 OBJECTS_DIR = $$BUILD_DIRECTORY/ObjFiles
 
 
-SOURCES += src/main.cpp\
-           src/mainwindow.cpp \
+SOURCES += src/main.cxx \
+           src/mainwindow.cxx \
            src/qcanbuffer.cxx \
            src/qcanrecvthread.cxx \
            src/qcansendthread.cxx \
@@ -43,7 +56,6 @@ SOURCES += src/main.cpp\
            src/logmodel.cxx \
            src/qcanpkgabstractmodel.cxx \
            src/qcanmonitor.cxx \
-           src/brusanlg6dialog.cpp \
            src/can_drv.cxx \
            src/msgseq.cxx \
            src/drivers/linux/net_ops.cxx \
