@@ -47,6 +47,7 @@ bool QCanMonitor::filterCallback(can_packet_t *packet)
 	QString strPktId = QString::number(packet->id & EFF_MASK, 16);
 	if (! m_reg_pattern.isEmpty()) {
 		QRegExp regexp = QRegExp(m_reg_pattern);
+		regexp.setCaseSensitivity(Qt::CaseInsensitive);
 		match = (regexp.isValid()) ?
 		        regexp.exactMatch(strPktId) : true;
 	} else
