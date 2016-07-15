@@ -57,7 +57,6 @@ QCanalyzerConfigDialog::QCanalyzerConfigDialog(QWidget *parent)
 
 QCanalyzerConfigDialog::~QCanalyzerConfigDialog()
 {
-	//CONFIG DIALOG GOT CLOSED
 }
 
 void QCanalyzerConfigDialog::changePage(QListWidgetItem *current, QListWidgetItem *previous)
@@ -89,16 +88,7 @@ void QCanalyzerConfigDialog::saveSettings()
 #endif
 		settings->setValue("8DevicesBitRate", "250000");
 	}
-	/*
-		// for connection to sirius device via serial
-		if (!canSirDeviceLineEdit->text().isEmpty()){
-			settings->setValue("canSirDevice", canSirDeviceLineEdit->text());
-			settings->setValue("canSirSerialSpeed", canSirSerialSpeedLineEdit->text());
-			settings->setValue("canSirCanBaud", canSirCanBaudLineEdit->text());
-		} else {
-			settings->setValue("canSirDevice", "no");
-		}
-	*/
+
 	// for connection to ixxat
 	if (!ixxatBitRateLineEdit->text().isEmpty()) {
 		strValue = ixxatBitRateLineEdit->text().trimmed();
