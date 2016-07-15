@@ -76,6 +76,7 @@ int QCanSocket::connect()
 
 int QCanSocket::disconnect()
 {
+	this->stop();
 	int r = can_ops->destroy(skt);
 	if (r != -1) {
 		skt = -1;
