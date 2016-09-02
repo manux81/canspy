@@ -37,3 +37,4 @@ Makefile
 
 # Other files
 setting.txt
+*.orig
