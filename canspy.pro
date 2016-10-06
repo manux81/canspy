@@ -59,6 +59,7 @@ SOURCES += src/main.cxx \
            src/qcanmonitor.cxx \
            src/can_drv.cxx \
            src/msgseq.cxx \
+           src/trigger.cxx \
            src/drivers/general/net_ops.cxx \
            src/drivers/general/simulation_ops.cxx
 
@@ -80,12 +81,14 @@ HEADERS  += include/mainwindow.h \
             include/qcanpacketconsumer.h \
             include/qcanmonitor.h \
             include/utils.h \
-            include/msgseq.h
+            include/msgseq.h \
+            include/trigger.h
 
 
 FORMS    += forms/mainwindow.ui \
             forms/configdialog.ui \
-            forms/msgseq.ui
+            forms/msgseq.ui \
+            forms/triggerdialog.ui
 
 linux-* {
 SOURCES += \
